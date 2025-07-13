@@ -1,421 +1,289 @@
-# REST API Client Examples
+# Personal Resume Website
 
-Comprehensive examples and implementations for sending POST and GET REST API requests using different programming languages and approaches.
+A modern, responsive personal resume website built with HTML, CSS, and JavaScript. This website showcases your professional information, experience, skills, and projects with an elegant design and smooth animations.
+
+## 🌟 Features
+
+### 📱 Responsive Design
+- Fully responsive layout that works on all devices
+- Mobile-first approach with touch-friendly navigation
+- Optimized for desktop, tablet, and mobile viewing
+
+### 🎨 Modern UI/UX
+- Clean and professional design
+- Smooth animations and transitions
+- Interactive elements with hover effects
+- Beautiful gradient backgrounds and modern typography
+
+### 📋 Complete Resume Sections
+- **Hero Section**: Eye-catching introduction with call-to-action buttons
+- **About**: Personal information and key statistics
+- **Experience**: Timeline-based work history with achievements
+- **Education**: Academic background with details
+- **Skills**: Visual skill bars with proficiency levels
+- **Projects**: Portfolio showcase with technology tags
+- **Contact**: Contact form and social media links
+
+### ⚡ Interactive Features
+- Smooth scrolling navigation
+- Animated skill bars
+- Project image hover effects
+- Contact form with validation
+- Resume download functionality
+- Mobile hamburger menu
+- Scroll-triggered animations
+
+### 📄 Resume Download
+- Multiple format support (PDF, Word, Text)
+- Direct download links
+- Download tracking and notifications
 
 ## 📁 Project Structure
 
 ```
-.
-├── api_client.py          # Python REST API client with examples
-├── api_client.js          # JavaScript/Node.js REST API client
-├── api_demo.html          # Interactive HTML demo page
-├── requirements.txt       # Python dependencies
-└── README.md             # This documentation file
+personal-resume-website/
+├── index.html              # Main HTML file
+├── styles.css              # CSS styles and animations
+├── script.js               # JavaScript functionality
+├── resume.txt              # Text version of resume
+├── profile.jpg             # Profile picture (add your own)
+├── project1.jpg            # Project images (add your own)
+├── project2.jpg            # Project images (add your own)
+├── project3.jpg            # Project images (add your own)
+├── resume.pdf              # PDF version of resume (add your own)
+├── resume.docx             # Word version of resume (add your own)
+└── README.md               # This documentation
 ```
 
 ## 🚀 Quick Start
 
-### Python Examples
-
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Run Python examples:**
-   ```bash
-   python api_client.py
-   ```
-
-3. **Basic usage:**
-   ```python
-   from api_client import APIClient
-   
-   # Create client
-   client = APIClient("https://jsonplaceholder.typicode.com")
-   
-   # GET request
-   users = client.get_request_requests('/users')
-   print(f"Retrieved {len(users)} users")
-   
-   # POST request
-   new_post = {"title": "Test", "body": "Content", "userId": 1}
-   response = client.post_request_requests('/posts', new_post)
-   print(f"Created post with ID: {response.get('id')}")
-   ```
-
-### JavaScript Examples
-
-1. **Browser usage:**
-   - Open `api_demo.html` in your browser
-   - Use the interactive demo to test API requests
-
-2. **Node.js usage:**
-   ```bash
-   node api_client.js
-   ```
-
-3. **Basic usage:**
-   ```javascript
-   const client = new APIClient('https://jsonplaceholder.typicode.com');
-   
-   // GET request
-   const users = await client.getRequest('/users');
-   console.log(`Retrieved ${users.length} users`);
-   
-   // POST request
-   const newPost = { title: 'Test', body: 'Content', userId: 1 };
-   const response = await client.postRequest('/posts', newPost);
-   console.log(`Created post with ID: ${response.id}`);
-   ```
-
-## 📚 API Documentation
-
-### Python APIClient Class
-
-#### Constructor
-```python
-APIClient(base_url: str = "https://api.example.com", timeout: int = 30)
+### 1. Clone or Download
+```bash
+git clone <repository-url>
+cd personal-resume-website
 ```
 
-**Parameters:**
-- `base_url` (str): Base URL for the API
-- `timeout` (int): Request timeout in seconds
+### 2. Customize Content
+Edit the following files to personalize your website:
 
-#### Methods
+#### `index.html`
+- Replace "Your Name" with your actual name
+- Update contact information (email, phone, location)
+- Modify work experience, education, and skills
+- Add your own projects and descriptions
+- Update social media links
 
-##### GET Requests
-```python
-get_request_requests(endpoint: str, params: Optional[Dict] = None, headers: Optional[Dict] = None) -> Dict[str, Any]
+#### `styles.css`
+- Customize colors by changing CSS variables
+- Modify fonts, spacing, or layout as needed
+- Adjust animations and transitions
+
+#### `script.js`
+- Update form handling for your email service
+- Modify animations or add new features
+- Customize notification messages
+
+### 3. Add Your Images
+- **Profile Picture**: Replace `profile.jpg` with your professional photo
+- **Project Images**: Replace `project1.jpg`, `project2.jpg`, `project3.jpg` with your project screenshots
+- **Resume Files**: Add your actual resume files (`resume.pdf`, `resume.docx`)
+
+### 4. Deploy
+You can deploy this website to any static hosting service:
+
+#### GitHub Pages
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
 ```
+Then enable GitHub Pages in your repository settings.
 
-**Parameters:**
-- `endpoint` (str): API endpoint (e.g., '/users')
-- `params` (dict, optional): Query parameters
-- `headers` (dict, optional): Additional headers
+#### Netlify
+- Drag and drop the folder to Netlify
+- Or connect your GitHub repository
 
-**Returns:** Response data as dictionary
+#### Vercel
+- Install Vercel CLI: `npm i -g vercel`
+- Run: `vercel` in the project directory
 
-**Example:**
-```python
-# Simple GET request
-users = client.get_request_requests('/users')
+## 🎨 Customization Guide
 
-# GET request with parameters
-posts = client.get_request_requests('/posts', params={'userId': 1, '_limit': 5})
-```
+### Colors
+The website uses a modern color scheme. To customize colors, edit these CSS variables in `styles.css`:
 
-##### POST Requests
-```python
-post_request_requests(endpoint: str, data: Dict[str, Any], headers: Optional[Dict] = None) -> Dict[str, Any]
-```
-
-**Parameters:**
-- `endpoint` (str): API endpoint (e.g., '/users')
-- `data` (dict): Data to send in the request body
-- `headers` (dict, optional): Additional headers
-
-**Returns:** Response data as dictionary
-
-**Example:**
-```python
-new_post = {
-    "title": "Test Post",
-    "body": "This is a test post",
-    "userId": 1
-}
-response = client.post_request_requests('/posts', new_post)
-```
-
-### JavaScript APIClient Class
-
-#### Constructor
-```javascript
-APIClient(baseURL = 'https://api.example.com', timeout = 30000)
-```
-
-**Parameters:**
-- `baseURL` (string): Base URL for the API
-- `timeout` (number): Request timeout in milliseconds
-
-#### Methods
-
-##### GET Requests
-```javascript
-async getRequest(endpoint, params = {}, headers = {})
-```
-
-**Parameters:**
-- `endpoint` (string): API endpoint (e.g., '/users')
-- `params` (object): Query parameters
-- `headers` (object): Additional headers
-
-**Returns:** Promise that resolves to response data
-
-**Example:**
-```javascript
-// Simple GET request
-const users = await client.getRequest('/users');
-
-// GET request with parameters
-const posts = await client.getRequest('/posts', { userId: 1, _limit: 5 });
-```
-
-##### POST Requests
-```javascript
-async postRequest(endpoint, data = {}, headers = {})
-```
-
-**Parameters:**
-- `endpoint` (string): API endpoint (e.g., '/users')
-- `data` (object): Data to send in the request body
-- `headers` (object): Additional headers
-
-**Returns:** Promise that resolves to response data
-
-**Example:**
-```javascript
-const newPost = {
-    title: 'Test Post',
-    body: 'This is a test post',
-    userId: 1
-};
-const response = await client.postRequest('/posts', newPost);
-```
-
-## 🔧 Advanced Features
-
-### Authentication
-
-Both Python and JavaScript clients support custom headers for authentication:
-
-```python
-# Python
-headers = {
-    'Authorization': 'Bearer your_token_here',
-    'X-API-Key': 'your_api_key_here'
-}
-response = client.get_request_requests('/protected-endpoint', headers=headers)
-```
-
-```javascript
-// JavaScript
-const headers = {
-    'Authorization': 'Bearer your_token_here',
-    'X-API-Key': 'your_api_key_here'
-};
-const response = await client.getRequest('/protected-endpoint', {}, headers);
-```
-
-### File Upload
-
-**Python:**
-```python
-files = {
-    'file': ('filename.txt', open('filename.txt', 'rb'), 'text/plain')
-}
-data = {'description': 'Uploaded file'}
-
-response = client.session.post(
-    f"{client.base_url}/upload",
-    files=files,
-    data=data,
-    timeout=client.timeout
-)
-```
-
-**JavaScript:**
-```javascript
-const formData = new FormData();
-formData.append('file', file);
-formData.append('description', 'Uploaded file');
-
-const response = await fetch(`${client.baseURL}/upload`, {
-    method: 'POST',
-    body: formData
-});
-```
-
-### Error Handling
-
-Both clients include comprehensive error handling:
-
-```python
-try:
-    response = client.get_request_requests('/users')
-    print("Success:", response)
-except requests.exceptions.RequestException as e:
-    print(f"Request failed: {e}")
-```
-
-```javascript
-try {
-    const response = await client.getRequest('/users');
-    console.log('Success:', response);
-} catch (error) {
-    console.error('Request failed:', error.message);
+```css
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #fbbf24;
+    --gradient-start: #667eea;
+    --gradient-end: #764ba2;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --background-light: #f8f9fa;
+    --background-white: #ffffff;
 }
 ```
 
-## 🌐 Testing APIs
+### Fonts
+The website uses Inter font from Google Fonts. To change fonts:
 
-The examples use these free testing APIs:
+1. Update the Google Fonts link in `index.html`
+2. Modify the font-family in `styles.css`
 
-1. **JSONPlaceholder** (`https://jsonplaceholder.typicode.com`)
-   - Free fake API for testing and prototyping
-   - Supports GET, POST, PUT, DELETE operations
-   - No authentication required
+### Layout
+- **Grid Layouts**: Most sections use CSS Grid for responsive layouts
+- **Flexbox**: Used for navigation and button arrangements
+- **Media Queries**: Responsive breakpoints at 768px and 480px
 
-2. **HTTPBin** (`https://httpbin.org`)
-   - HTTP request & response service
-   - Useful for testing various HTTP scenarios
+### Animations
+- **Scroll Animations**: Elements animate when they come into view
+- **Hover Effects**: Interactive elements have smooth hover transitions
+- **Loading Animations**: Skill bars and counters animate on scroll
 
-## 📝 Examples by Use Case
+## 📱 Mobile Optimization
 
-### 1. Basic CRUD Operations
+The website is fully optimized for mobile devices:
 
-**Create (POST):**
-```python
-# Python
-new_user = {"name": "John Doe", "email": "john@example.com"}
-response = client.post_request_requests('/users', new_user)
+- **Touch-friendly**: Large touch targets for buttons and links
+- **Readable text**: Appropriate font sizes for mobile screens
+- **Optimized images**: Responsive images that scale properly
+- **Mobile menu**: Hamburger menu for mobile navigation
+- **Fast loading**: Optimized CSS and JavaScript
+
+## 🔧 Technical Features
+
+### JavaScript Functionality
+- **Navigation**: Smooth scrolling and active link highlighting
+- **Form Validation**: Client-side validation with error messages
+- **Animations**: Intersection Observer for scroll-triggered animations
+- **Modal System**: Resume download modal with multiple format options
+- **Notifications**: Toast notifications for user feedback
+
+### CSS Features
+- **CSS Grid**: Modern layout system for responsive design
+- **Flexbox**: Flexible layouts for components
+- **CSS Variables**: Easy customization with CSS custom properties
+- **Animations**: Keyframe animations and transitions
+- **Media Queries**: Responsive design breakpoints
+
+### Performance Optimizations
+- **Lazy Loading**: Images load only when needed
+- **Debounced Events**: Optimized scroll event handling
+- **Minimal Dependencies**: Only Font Awesome for icons
+- **Efficient CSS**: Optimized selectors and properties
+
+## 📧 Contact Form Setup
+
+The contact form is currently set up for demonstration. To make it functional:
+
+### Option 1: EmailJS
+1. Sign up at [EmailJS](https://www.emailjs.com/)
+2. Configure your email service
+3. Update the JavaScript to use EmailJS API
+
+### Option 2: Netlify Forms
+1. Deploy to Netlify
+2. Add `netlify` attribute to the form
+3. Forms will be automatically handled
+
+### Option 3: Custom Backend
+1. Create a backend API endpoint
+2. Update the form submission in `script.js`
+3. Handle form data on your server
+
+## 🌐 Browser Support
+
+- **Chrome**: 60+
+- **Firefox**: 55+
+- **Safari**: 12+
+- **Edge**: 79+
+- **Mobile Browsers**: iOS Safari 12+, Chrome Mobile 60+
+
+## 📊 SEO Optimization
+
+The website includes basic SEO features:
+
+- Semantic HTML structure
+- Meta tags for social sharing
+- Proper heading hierarchy
+- Alt text for images
+- Fast loading times
+- Mobile-friendly design
+
+## 🔒 Privacy & Security
+
+- No external tracking scripts
+- Form data handled locally (customize as needed)
+- HTTPS recommended for production
+- No personal data stored in cookies
+
+## 🚀 Deployment Options
+
+### Free Hosting Services
+1. **GitHub Pages**: Perfect for developers
+2. **Netlify**: Great for static sites with forms
+3. **Vercel**: Excellent performance and features
+4. **Surge.sh**: Simple command-line deployment
+
+### Paid Hosting
+1. **AWS S3 + CloudFront**: Scalable and fast
+2. **Google Cloud Storage**: Reliable and cost-effective
+3. **DigitalOcean App Platform**: Easy deployment
+4. **Heroku**: Good for full-stack applications
+
+## 📈 Analytics Integration
+
+To add analytics to your website:
+
+### Google Analytics
+```html
+<!-- Add to <head> section -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
 ```
 
-```javascript
-// JavaScript
-const newUser = { name: 'John Doe', email: 'john@example.com' };
-const response = await client.postRequest('/users', newUser);
-```
-
-**Read (GET):**
-```python
-# Python
-users = client.get_request_requests('/users')
-user = client.get_request_requests('/users/1')
-```
-
-```javascript
-// JavaScript
-const users = await client.getRequest('/users');
-const user = await client.getRequest('/users/1');
-```
-
-**Update (PUT):**
-```python
-# Python
-updated_user = {"id": 1, "name": "Jane Doe", "email": "jane@example.com"}
-response = client.session.put(f"{client.base_url}/users/1", json=updated_user)
-```
-
-```javascript
-// JavaScript
-const updatedUser = { id: 1, name: 'Jane Doe', email: 'jane@example.com' };
-const response = await client.putRequest('/users/1', updatedUser);
-```
-
-**Delete:**
-```python
-# Python
-response = client.session.delete(f"{client.base_url}/users/1")
-```
-
-```javascript
-// JavaScript
-const response = await client.deleteRequest('/users/1');
-```
-
-### 2. Query Parameters
-
-```python
-# Python
-posts = client.get_request_requests('/posts', params={
-    'userId': 1,
-    '_limit': 5,
-    '_sort': 'id',
-    '_order': 'desc'
-})
-```
-
-```javascript
-// JavaScript
-const posts = await client.getRequest('/posts', {
-    userId: 1,
-    _limit: 5,
-    _sort: 'id',
-    _order: 'desc'
-});
-```
-
-### 3. Pagination
-
-```python
-# Python
-page = 1
-limit = 10
-posts = client.get_request_requests('/posts', params={
-    '_page': page,
-    '_limit': limit
-})
-```
-
-```javascript
-// JavaScript
-const page = 1;
-const limit = 10;
-const posts = await client.getRequest('/posts', {
-    _page: page,
-    _limit: limit
-});
-```
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-1. **Connection Timeout**
-   - Increase timeout value in client constructor
-   - Check network connectivity
-
-2. **Authentication Errors**
-   - Verify API keys and tokens
-   - Check header format (Bearer token, etc.)
-
-3. **CORS Issues (Browser)**
-   - Use CORS proxy for development
-   - Ensure server allows your domain
-
-4. **JSON Parsing Errors**
-   - Verify response format
-   - Handle non-JSON responses
-
-### Debug Tips
-
-1. **Enable logging:**
-   ```python
-   import logging
-   logging.basicConfig(level=logging.DEBUG)
-   ```
-
-2. **Check response details:**
-   ```python
-   response = client.session.get(url)
-   print(f"Status: {response.status_code}")
-   print(f"Headers: {response.headers}")
-   print(f"Content: {response.text}")
-   ```
-
-## 📖 Additional Resources
-
-- [HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
-- [REST API Best Practices](https://restfulapi.net/)
-- [JSONPlaceholder Documentation](https://jsonplaceholder.typicode.com/)
-- [Fetch API Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [Python Requests Documentation](https://requests.readthedocs.io/)
+### Other Options
+- **Plausible Analytics**: Privacy-focused analytics
+- **Fathom Analytics**: Simple and privacy-friendly
+- **Matomo**: Self-hosted analytics
 
 ## 🤝 Contributing
 
-Feel free to submit issues, feature requests, or pull requests to improve these examples.
+Feel free to contribute to this project:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- **Font Awesome**: For the beautiful icons
+- **Google Fonts**: For the Inter font family
+- **Unsplash**: For placeholder images
+- **CSS Grid & Flexbox**: For modern layouts
+
+## � Support
+
+If you need help customizing or deploying your resume website:
+
+1. Check the documentation above
+2. Look at the code comments
+3. Open an issue on GitHub
+4. Contact me through the website
+
+---
+
+**Happy coding! 🚀**
+
+*This website template is designed to help you showcase your professional experience and skills in a modern, attractive way. Customize it to match your personal brand and career goals.*
